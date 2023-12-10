@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Таблиця 10x10</title>
+  <style>
+    table {
+      border-collapse: separate;
+      width: 50%;
+    }
+
+    table, th, td {
+      border: 2px solid black;
+    }
+
+    th, td {
+      padding: 0.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<table id="myTable"></table>
+
+<script>
+  function createTable(rows, cols) {
+    let table = document.getElementById("myTable");
+
+    for (let i = 1; i <= rows; i++) {
+      let row = table.insertRow();
+      
+      for (let j = 1; j <= cols; j++) {
+        let cell = row.insertCell();
+        cell.textContent = (i - 1) * cols + j;
+      }
+    }
+  }
+
+  // Добавив ще рандом колір для цікавості
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  createTable(10, 10);
+</script>
+
+</body>
+</html>
